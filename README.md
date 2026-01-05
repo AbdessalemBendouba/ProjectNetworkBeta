@@ -1,20 +1,19 @@
 
 # Project Network Beta: ESP32 Multi-Core Signal Processor
-
-A high-performance ESP32 firmware designed for real-time vibration and current monitoring. This project leverages the ESP32's dual-core architecture to separate network management from heavy digital signal processing (DSP).
+  A high-performance ESP32 firmware designed for real-time vibration and current monitoring. This project leverages the ESP32's dual-core architecture to separate network management from heavy digital signal processing (DSP).
 
 ## System Architecture
+  This project is built using a modular, class-based approach and runs on **FreeRTOS** to maximize efficiency:
 
-This project is built using a modular, class-based approach and runs on **FreeRTOS** to maximize efficiency:
-
-* **Core 0 (Communication Hub):** * Manages the WiFi Access Point.
-* Runs a TCP Server to receive raw sensor data from remote nodes.
-* Uses **FreeRTOS Queues** to pass data packets to the processing core.
+* **Core 0 (Communication Hub):**
+  * Manages the WiFi Access Point.
+  * Runs a TCP Server to receive raw sensor data from remote nodes.
+  * Uses **FreeRTOS Queues** to pass data packets to the processing core.
 
 * **Core 1 (Processing Core):**
-* Performs **1024-point FFT (Fast Fourier Transform)** on incoming data.
-* Aggregates 256-sample batches into a full analysis buffer.
-* Hosts an **Asynchronous Web Server** and Event Stream for real-time dashboard updates.
+  * Performs **1024-point FFT (Fast Fourier Transform)** on incoming data.
+  * Aggregates 256-sample batches into a full analysis buffer.
+  * Hosts an **Asynchronous Web Server** and Event Stream for real-time dashboard updates.
 
 
 ## Key Components
@@ -25,21 +24,18 @@ This project is built using a modular, class-based approach and runs on **FreeRT
 * **Web Dashboard:** A real-time visualization interface built into `WebCode.h` using WebSockets/Server-Sent Events (SSE).
 
 ## Software Dependencies
-
-To compile this project, you will need the following libraries installed in your Arduino IDE:
+  To compile this project, you will need the following libraries installed in your Arduino IDE:
 
 * **[ESPAsyncWebServer](https://github.com/lacamera/ESPAsyncWebServer)**
 * **[AsyncTCP](https://github.com/me-no-dev/AsyncTCP)**
 * **[arduinoFFT](https://github.com/kosme/arduinoFFT)** (Tested with version 2.0)
 
 ## Installation
-
 1. Clone the repository:
 ```bash
 git clone https://github.com/AbdessalemBendouba/ProjectNetworkBeta.git
 
 ```
-
 
 2. Open `Esp32ServerRefactored.ino` in the Arduino IDE.
 3. Install the dependencies listed above.
