@@ -2,6 +2,10 @@
 # Project Network Beta: ESP32 Multi-Core Signal Processor
   A high-performance ESP32 firmware designed for real-time vibration and current monitoring. This project leverages the ESP32's dual-core architecture to separate network management from heavy digital signal processing (DSP).
 
+## Makers of the Project
+  * [Bendouba Abdessalem](https://github.com/AbdessalemBendouba)
+  * [Brakni Mohamed Abdessamad](https://github.com/braknimohamedabdessamad-jpg)
+
 ## System Architecture
   This project is built using a modular, class-based approach and runs on **FreeRTOS** to maximize efficiency:
 
